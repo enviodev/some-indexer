@@ -1,0 +1,17 @@
+name: my-indexer
+networks:
+- id: 1
+  start_block: 0
+  contracts:
+  - name: LendPoolLoan
+    address:
+    - 0x5f6ac80CdB9E87f3Cfa6a90E5140B9a16A361d5C
+    handler: src/EventHandlers.ts
+    events:
+    - event: LoanAuctioned(address indexed user, uint256 indexed loanId, address nftAsset, uint256 nftTokenId, uint256 amount, uint256 borrowIndex, address bidder, uint256 price, address previousBidder, uint256 previousPrice)
+    - event: LoanCreated(address indexed user, address indexed onBehalfOf, uint256 indexed loanId, address nftAsset, uint256 nftTokenId, address reserveAsset, uint256 amount, uint256 borrowIndex)
+    - event: LoanLiquidated(address indexed user, uint256 indexed loanId, address nftAsset, uint256 nftTokenId, address reserveAsset, uint256 amount, uint256 borrowIndex)
+    - event: LoanRedeemed(address indexed user, uint256 indexed loanId, address nftAsset, uint256 nftTokenId, address reserveAsset, uint256 amountTaken, uint256 borrowIndex)
+    - event: LoanRepaid(address indexed user, uint256 indexed loanId, address nftAsset, uint256 nftTokenId, address reserveAsset, uint256 amount, uint256 borrowIndex)
+    - event: LoanRepaidInterceptorUpdated(address nftAsset, uint256 tokenId, address indexed interceptor, bool approved)
+    - event: LoanUpdated(address indexed user, uint256 indexed loanId, address nftAsset, uint256 nftTokenId, address reserveAsset, uint256 amountAdded, uint256 amountTaken, uint256 borrowIndex)

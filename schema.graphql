@@ -1,0 +1,103 @@
+type EventsSummary {
+  id: ID!
+  lendPoolLoan_LoanAuctioned: [LendPoolLoan_LoanAuctioned!]! @derivedFrom(field: "eventsSummary")
+  lendPoolLoan_LoanAuctionedCount: BigInt!
+  lendPoolLoan_LoanCreated: [LendPoolLoan_LoanCreated!]! @derivedFrom(field: "eventsSummary")
+  lendPoolLoan_LoanCreatedCount: BigInt!
+  lendPoolLoan_LoanLiquidated: [LendPoolLoan_LoanLiquidated!]! @derivedFrom(field: "eventsSummary")
+  lendPoolLoan_LoanLiquidatedCount: BigInt!
+  lendPoolLoan_LoanRedeemed: [LendPoolLoan_LoanRedeemed!]! @derivedFrom(field: "eventsSummary")
+  lendPoolLoan_LoanRedeemedCount: BigInt!
+  lendPoolLoan_LoanRepaid: [LendPoolLoan_LoanRepaid!]! @derivedFrom(field: "eventsSummary")
+  lendPoolLoan_LoanRepaidCount: BigInt!
+  lendPoolLoan_LoanRepaidInterceptorUpdated: [LendPoolLoan_LoanRepaidInterceptorUpdated!]! @derivedFrom(field: "eventsSummary")
+  lendPoolLoan_LoanRepaidInterceptorUpdatedCount: BigInt!
+  lendPoolLoan_LoanUpdated: [LendPoolLoan_LoanUpdated!]! @derivedFrom(field: "eventsSummary")
+  lendPoolLoan_LoanUpdatedCount: BigInt!
+}
+
+type LendPoolLoan_LoanAuctioned {
+  id: ID!
+  user: String!
+  loanId: BigInt!
+  nftAsset: String!
+  nftTokenId: BigInt!
+  amount: BigInt!
+  borrowIndex: BigInt!
+  bidder: String!
+  price: BigInt!
+  previousBidder: String!
+  previousPrice: BigInt!
+  eventsSummary: String!
+}
+
+type LendPoolLoan_LoanCreated {
+  id: ID!
+  user: String!
+  onBehalfOf: String!
+  loanId: BigInt!
+  nftAsset: String!
+  nftTokenId: BigInt!
+  reserveAsset: String!
+  amount: BigInt!
+  borrowIndex: BigInt!
+  eventsSummary: String!
+}
+
+type LendPoolLoan_LoanLiquidated {
+  id: ID!
+  user: String!
+  loanId: BigInt!
+  nftAsset: String!
+  nftTokenId: BigInt!
+  reserveAsset: String!
+  amount: BigInt!
+  borrowIndex: BigInt!
+  eventsSummary: String!
+}
+
+type LendPoolLoan_LoanRedeemed {
+  id: ID!
+  user: String!
+  loanId: BigInt!
+  nftAsset: String!
+  nftTokenId: BigInt!
+  reserveAsset: String!
+  amountTaken: BigInt!
+  borrowIndex: BigInt!
+  eventsSummary: String!
+}
+
+type LendPoolLoan_LoanRepaid {
+  id: ID!
+  user: String!
+  loanId: BigInt!
+  nftAsset: String!
+  nftTokenId: BigInt!
+  reserveAsset: String!
+  amount: BigInt!
+  borrowIndex: BigInt!
+  eventsSummary: String!
+}
+
+type LendPoolLoan_LoanRepaidInterceptorUpdated {
+  id: ID!
+  nftAsset: String!
+  tokenId: BigInt!
+  interceptor: String!
+  approved: Boolean!
+  eventsSummary: String!
+}
+
+type LendPoolLoan_LoanUpdated {
+  id: ID!
+  user: String!
+  loanId: BigInt!
+  nftAsset: String!
+  nftTokenId: BigInt!
+  reserveAsset: String!
+  amountAdded: BigInt!
+  amountTaken: BigInt!
+  borrowIndex: BigInt!
+  eventsSummary: String!
+}
